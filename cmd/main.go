@@ -1,7 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"log"
+
+	"github.com/go-sql-driver/mysql"
+	"github.com/vikram305/ecom/cmd/api"
+	"github.com/vikram305/ecom/db"
+)
+
+
 
 func main(){
-	fmt.Println("Hello")
+
+	server := api.NewAPIServer(":8080", nil)
+	err := server.Run()
+	if err!=nil{
+		log.Fatal(err)
+	}
 }
